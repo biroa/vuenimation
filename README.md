@@ -1,5 +1,7 @@
 # vuenimation
 
+The goal of this project to provide examples for making animations in Vue 3 
+
 ## Project setup
 ```
 npm install

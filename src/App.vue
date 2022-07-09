@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <button type="button" @click="flag=!flag">Toggle</button>
+  <transition name="fade" mode="out-in">
+    <h2 v-if="flag" key="main" >Animation One</h2>
+    <h2 v-else key="secondary">Animation Two</h2>
+  </transition>
+  <css-animation/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import CssAnimation from './components/CssAnimation';
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CssAnimation
+  },
+  data(){
+    return {
+      flag:false
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.fade-enter-from {
+  opacity: 0;
+}
+.fade-enter-active{
+  transition: all 3s linear;
+}
+.fade-leave-to{
+  transition: all 3s linear;
+  opacity: 0;
 }
 </style>
